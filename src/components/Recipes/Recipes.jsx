@@ -20,14 +20,14 @@ function Recipes() {
           elementum mauris aenean neque.
         </p>
         <div className="flex">
-          <div className="w-2/3 grid grid-cols-2 gap-6 bg-red-200">
+          <div className="w-2/3 grid grid-cols-2 gap-6 ">
             {recipes.map((recipe) => (
               <Recipe key={recipe.recipe_id} recipe={recipe}>
                 {" "}
               </Recipe>
             ))}
           </div>
-          <div className="w-1/3  rounded-2xl border h-fit">
+          <div className="w-[514px]  rounded-2xl border h-fit">
             <Cook></Cook>
           </div>
         </div>
