@@ -10,7 +10,7 @@ function App() {
       <Header></Header>
       <Hero></Hero>
       <Recipes></Recipes>
-      <Recipe></Recipe>
+      
     </>
   );
 }
