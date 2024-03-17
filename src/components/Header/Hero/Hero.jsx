@@ -3,15 +3,15 @@ import React from "react";
 import Banner from "../../../assets/images/Banner.png";
 const Hero = () => {
   return (
-    <div className="">
+    <div className="container max-w-[82.5rem] mx-auto">
       <div className="relative">
-        <img className="h-screen w-screen" src={Banner} alt="" />
+        <img className="" src={Banner} alt="" />
         {/* <div>
           <video autoPlay muted loop>
             <source src={Banner} type="video/mp4" />
           </video>
         </div> */}
-        <div className="absolute top-1/2 left-1/3">
+        <div className="absolute top-1/2">
           <div className="text-center text-white">
             <h1>Discover an exceptional cooking class tailored for you!</h1>
             <p>

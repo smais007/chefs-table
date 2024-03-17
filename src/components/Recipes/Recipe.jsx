@@ -2,6 +2,7 @@
 /* eslint-disable react/prop-types */
 import { CiClock1 } from "react-icons/ci";
 import { AiOutlineFire } from "react-icons/ai";
+
 const Recipe = ({ recipe, handleItemSelect }) => {
   const {
     recipe_name,
@@ -11,7 +12,6 @@ const Recipe = ({ recipe, handleItemSelect }) => {
     recipe_image,
     ingredients,
   } = recipe;
-
 
   return (
     <div className="">

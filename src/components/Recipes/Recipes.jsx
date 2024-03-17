@@ -1,14 +1,18 @@
 /* eslint-disable react/prop-types */
 import { useEffect, useState } from "react";
 import Recipe from "./Recipe";
+import { toast } from 'sonner';
 
 function Recipes({ handleItemSelect }) {
+
   const [recipes, setRecipes] = useState([]);
   useEffect(() => {
     fetch("recipes.json")
       .then((res) => res.json())
       .then((data) => setRecipes(data));
   }, []);
+
+
 
   return (
     <div className="container max-w-[82.5rem] mx-auto">
@@ -21,7 +25,7 @@ function Recipes({ handleItemSelect }) {
                 handleItemSelect={handleItemSelect}
                 key={recipe.recipe_id}
                 recipe={recipe}
-                
+
               ></Recipe>
             ))}
           </div>

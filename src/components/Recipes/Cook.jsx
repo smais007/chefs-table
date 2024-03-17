@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { toast } from "sonner";
 
 const Cook = ({ carts, setCarts }) => {
+  let totalTime = 0;
+  let totalCal = 0;
   const [currentlyCooking, setCurrentlyCooking] = useState([]);
 
   const uniqueCarts = carts.filter((item, index) => {
@@ -10,21 +12,22 @@ const Cook = ({ carts, setCarts }) => {
     );
   });
 
-  console.log(currentlyCooking);
-
   const cookItem = (item) => {
-    console.log(carts);
+    const promise = () =>
+      new Promise((resolve) =>
+        setTimeout(() => resolve({ name: "Sonner" }), 1500)
+      );
 
-    setCarts(carts.filter((nod) => nod.recipe_id !== item.recipe_id)); // removing from Carts
+    setCarts(carts.filter((nod) => nod.recipe_id !== item.recipe_id));
+    setCurrentlyCooking([...currentlyCooking, item]);
 
-    setCurrentlyCooking([...currentlyCooking, item]); // Adding the removed item to Current Cooking list
-
-    toast.success(`${item.recipe_name} added to cooking`);
-
-    // Filter out the item being cooked from uniqueCarts
-    // setUniqueCart((prevUniqueCarts) =>
-    //   prevUniqueCarts.filter((cartItem) => cartItem !== item)
-    // );
+    toast.promise(promise, {
+      loading: "Loading...",
+      success: (data) => {
+        return `${item.recipe_name} added to current cooking`;
+      },
+      error: "Error",
+    });
   };
 
   return (
@@ -106,10 +109,16 @@ const Cook = ({ carts, setCarts }) => {
       <div className="mt-4">
         <div className="flex justify-end gap-5 px-6 font-medium text-[#282828CC] leading-6">
           <h1 className="text-left">
-            Total Time <br /> <span>40</span> Min
+            {currentlyCooking.forEach((item) => {
+              totalTime += Number(item.preparing_time);
+            })}
+            Total Time <br /> <span>{totalTime}</span> Min
           </h1>
           <h1 className="text-left">
-            Total Calories <br /> <span>300</span> Calories
+            {currentlyCooking.forEach((item) => {
+              totalCal += Number(item.calories);
+            })}
+            Total Calories <br /> <span>{totalCal}</span> Calories
           </h1>
         </div>
       </div>

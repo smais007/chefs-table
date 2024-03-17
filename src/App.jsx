@@ -6,27 +6,30 @@ import Cook from "./components/Recipes/Cook";
 import Recipes from "./components/Recipes/Recipes";
 
 import { Toaster } from "sonner";
+import Footer from "./components/Footer/Footer";
 
 function App() {
   const [carts, setCarts] = useState([]);
+  const [showToast, setShowToast] = useState(false);
   const handleItemSelect = ({ recipe }) => {
     // console.log(recipe);
     setCarts((c) => [...c, recipe]);
+    setShowToast(true);
   };
 
   return (
     <>
-      {/* <Header></Header>
-      <Hero></Hero> */}
+      <Header></Header>
+      <Hero></Hero>
       <div className="container max-w-[82.5rem] mx-auto">
-        {/* <div className="text-center">
+        <div className="text-center">
           <h1>Our Recipes</h1>
           <p>
             Lorem ipsum dolor sit amet consectetur. Proin et feugiat senectus
             vulputate netus pharetra rhoncus. Eget urna volutpat curabitur
             elementum mauris aenean neque.
           </p>
-        </div> */}
+        </div>
 
         <div className="flex justify-between">
           <div>
@@ -38,8 +41,9 @@ function App() {
           </div>
         </div>
       </div>
+      <Footer></Footer>
 
-      <Toaster />
+      <Toaster position="bottom-center" />
     </>
   );
 }
