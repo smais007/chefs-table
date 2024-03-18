@@ -40,7 +40,7 @@ function App() {
             <Recipes handleItemSelect={handleItemSelect}></Recipes>
           </div>
 
-          <div className="rounded-2xl border h-fit w-[379px] md:w-auto lg:w-auto">
+          <div className="rounded-2xl border h-fit w-[379px] md:w-auot lg:w-auto">
             <Cook carts={carts} setCarts={setCarts}></Cook>
           </div>
         </div>
