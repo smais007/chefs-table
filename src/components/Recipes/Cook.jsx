@@ -44,10 +44,12 @@ const Cook = ({ carts, setCarts }) => {
             <thead>
               <tr className="flex pb-4">
                 <th></th>
-                <th className="pl-[56px]">Name</th>
-                <th className="pl-[100px]">Time</th>
-                <th className="pl-[52px]">Calories</th>
-                <th className="pl-[30px]">Status</th>
+                <th className="text-[#878787] pl-10 md:pl-[3.5rem]">Name</th>
+                <th className="text-[#878787] pl-12 md:pl-[6.25rem]">Time</th>
+                <th className="text-[#878787] pl-12 md:pl-[3.25rem]">
+                  Calories
+                </th>
+                <th className="text-[#878787] pl-9 md:pl-[1.875rem]">Status</th>
               </tr>
             </thead>
             <tbody>
@@ -55,14 +57,22 @@ const Cook = ({ carts, setCarts }) => {
               {uniqueCarts.map((item, index) => (
                 <tr
                   key={index}
-                  className="flex gap-[23px] items-center text-left text-[#282828B2] bg-[#28282808] px-6 py-4 w-ful"
+                  className="flex gap-[1.5rem] items-center  text-[#282828B2] bg-[#28282808] px-6 py-4 w-auto"
                 >
                   <td className="font-semibold">{index + 1}.</td>
-                  <td>{item.recipe_name}</td>
-                  <td>{item.preparing_time}</td>
-                  <td>{item.calories}</td>
+                  <td className="text-[#282828B2] w-16 md:w-[7rem]">
+                    {item.recipe_name}
+                  </td>
+                  <td className="text-[#282828B2]w-10 md:w-[4.25rem]">
+                    {item.preparing_time} minutes
+                  </td>
+                  <td className="text-[#282828B2]">{item.calories} calories</td>
                   <td>
-                    <button id="preparing-btn" onClick={() => cookItem(item)}>
+                    <button
+                      id="preparing-btn"
+                      onClick={() => cookItem(item)}
+                      className="text-[#150B2B] font-medium bg-[#0BE58A] px-3 md:px-[18px] rounded-[50px]"
+                    >
                       Preparing
                     </button>
                   </td>
@@ -82,11 +92,12 @@ const Cook = ({ carts, setCarts }) => {
         <div className="">
           <table>
             <thead>
-              <tr className="flex pb-4">
+              <tr className="flex pb-4  w-fit">
                 <th></th>
-                <th className="pl-[56px]">Name</th>
-                <th className="pl-[149px]">Time</th>
-                <th className="pl-[85px]">Calories</th>
+                <th className="text-[#878787] pl-16  md:pl-[56px]">Name</th>
+                <th className="text-[#878787] pl-16  md:pl-[149px]">Time</th>
+                <th className="text-[#878787] pl-16  md:pl-[85px]">Calories</th>
+                <th> </th>
               </tr>
             </thead>
             <tbody>
@@ -94,12 +105,17 @@ const Cook = ({ carts, setCarts }) => {
               {currentlyCooking.map((item, index) => (
                 <tr
                   key={index}
-                  className="flex gap-[42px] items-center text-left text-[#282828B2] bg-[#28282808] px-6 py-5"
+                  className="flex gap-[42px] items-center text-left text-[#282828B2] bg-[#28282808] px-6 py-5 w-fit"
                 >
                   <td className="font-semibold">{index + 1}.</td>
-                  <td>{item.recipe_name}</td>
-                  <td>{item.preparing_time}</td>
-                  <td>{item.calories}</td>
+                  <td className="text-[#282828B2] w-20   md:w-[149px]">
+                    {item.recipe_name}
+                  </td>
+                  <td className="text-[#282828B2] w-[50px] md:w-[80px]">
+                    {item.preparing_time} minutes
+                  </td>
+                  <td className="text-[#282828B2]">{item.calories} calories</td>
+
                 </tr>
               ))}
             </tbody>
@@ -112,13 +128,13 @@ const Cook = ({ carts, setCarts }) => {
             {currentlyCooking.forEach((item) => {
               totalTime += Number(item.preparing_time);
             })}
-            Total Time <br /> <span>{totalTime}</span> Min
+            Total Time: <br /> <span>{totalTime}</span> Min
           </h1>
           <h1 className="text-left">
             {currentlyCooking.forEach((item) => {
               totalCal += Number(item.calories);
             })}
-            Total Calories <br /> <span>{totalCal}</span> Calories
+            Total Calories: <br /> <span>{totalCal}</span> Cal
           </h1>
         </div>
       </div>

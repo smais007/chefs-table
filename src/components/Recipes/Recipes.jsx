@@ -19,7 +19,7 @@ function Recipes({ handleItemSelect }) {
       <div className="text-center">
 
         <div className="flex">
-          <div className=" grid grid-cols-2 gap-6 ">
+          <div className=" grid grid-cols-1 lg:grid-cols-2 gap-6 ">
             {recipes.map((recipe) => (
               <Recipe
                 handleItemSelect={handleItemSelect}
