@@ -26,9 +26,9 @@ const Header = () => {
           <input
             placeholder="Search"
             type="text"
-            className="bg-[#150B2B0D] absolute  py-3  pl-14  rounded-[50px] hidden"
+            className="bg-[#150B2B0D] absolute  py-3  pl-14  rounded-[50px] hidden md:block lg:block"
           />
-          <img src={Search} alt="" className="pl-6" />
+          <img src={Search} alt="" className="pl-6 hidden md:block lg:block" />
         </div>
         <div>
           <img
